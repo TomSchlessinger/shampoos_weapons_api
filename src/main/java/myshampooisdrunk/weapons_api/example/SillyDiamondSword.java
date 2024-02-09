@@ -34,7 +34,6 @@ public class SillyDiamondSword extends AbstractCustomItem {
     }
     @Override
     public void onClick(ItemStack stack, Slot slot, ClickType clickType, PlayerEntity player, CallbackInfoReturnable<Boolean> cir){
-        //stack.setCount(stack.getCount()*2);
         player.setVelocity(0,10,0);
     }
     @Override
