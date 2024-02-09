@@ -1,0 +1,37 @@
+{
+	"schemaVersion": 1,
+	"id": "shampoos_weapons_api",
+	"version": "${version}",
+	"name": "shampoos_weapons_api",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/weapons_api/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"myshampooisdrunk.weapons_api.WeaponAPI"
+		],
+		"fabric-datagen": [
+			"myshampooisdrunk.weapons_api.WeaponAPIDataGenerator"
+		]
+	},
+	"mixins": [
+		"weapons_api.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.15.6",
+		"minecraft": "~1.20.4",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
