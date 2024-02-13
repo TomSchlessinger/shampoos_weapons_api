@@ -21,6 +21,6 @@ public class CustomItemRegistry {
         WeaponAPI.ITEMS.get(item.getItem()).add(item);
     }
     public static void registerRecipe(CraftingRecipe r,Identifier id){
-        Registry.register(Registries., id, r);
+        WeaponAPI.CUSTOM_RECIPES.put(id, r);
     }
 }
