@@ -8,6 +8,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.damage.DamageSources;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.entity.projectile.ArrowEntity;
 import net.minecraft.item.EnchantedBookItem;
 import net.minecraft.item.Item;
@@ -25,9 +26,12 @@ import net.minecraft.world.explosion.ExplosionBehavior;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class GoofySillyGoofyItem extends AbstractCustomItem {
     public GoofySillyGoofyItem() {
-        super(Items.ENCHANTED_BOOK,"zonky.zonky.zonky.zonky.zonky.fong");
+        super(Items.ENCHANTED_BOOK,new Identifier("example_items","goofy_silly_goofy_item"),"zonky.zonky.zonky.zonky.zonky.fong");
     }
 
     @Override
@@ -58,9 +62,18 @@ public class GoofySillyGoofyItem extends AbstractCustomItem {
             if(identifier2.equals(EnchantmentHelper.getEnchantmentId(Enchantments.FEATHER_FALLING))){
                 player.setVelocity(vel.x,vel.y+100,vel.z);
             }
-            //public Explosion createExplosion(@Nullable Entity entity, @Nullable DamageSource damageSource, @Nullable ExplosionBehavior behavior, Vec3d pos, float power, boolean createFire, ExplosionSourceType explosionSourceType) {
-            //        return this.createExplosion(entity, damageSource, behavior, pos.getX(), pos.getY(), pos.getZ(), power, createFire, explosionSourceType, ParticleTypes.EXPLOSION, ParticleTypes.EXPLOSION_EMITTER, SoundEvents.ENTITY_GENERIC_EXPLODE);
-            //    }
+            PlayerInventory inv = player.getInventory();
+            List<Integer> slots = new ArrayList<>(List.of(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35));
+            for(int s = 0; s < 36; s++){
+                int n = world.getRandom().nextBetweenExclusive(0,slots.size());
+                int s2 = slots.get(n);
+                ItemStack one = inv.getStack(s);
+                ItemStack two = inv.getStack(s2);
+                slots.remove(n);
+                inv.setStack(s,two);
+                inv.setStack(s2,one);
+                //hehehehe shuffles entire inventory
+            }
         }
     }
 }
