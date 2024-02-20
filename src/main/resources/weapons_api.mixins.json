@@ -5,6 +5,7 @@
   "mixins": [
     "EntityMixin",
     "ItemMixin",
+    "PlayerAdvancementTrackerMixin",
     "PlayerEntityMixin"
   ],
   "injectors": {
